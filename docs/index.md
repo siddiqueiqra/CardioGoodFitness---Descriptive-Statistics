@@ -56,13 +56,58 @@ max	NaN	50.000000	NaN	21.000000	NaN	7.000000	5.000000	104581.000000	360.000000
 ```
 
 ```
+mydata.info()
+```
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 180 entries, 0 to 179
+Data columns (total 9 columns):
+Product          180 non-null object
+Age              180 non-null int64
+Gender           180 non-null object
+Education        180 non-null int64
+MaritalStatus    180 non-null object
+Usage            180 non-null int64
+Fitness          180 non-null int64
+Income           180 non-null int64
+Miles            180 non-null int64
+dtypes: int64(6), object(3)
+memory usage: 12.7+ KB
+```
+```
 import matplotlib.pyplot as plt
 %matplotlib inline
 
 mydata.hist(figsize=(20,30))
 ```
-![plot](download(1).png)
+![download (1)](https://user-images.githubusercontent.com/84701809/181089115-fbbec147-dc83-4cf3-b757-8e08905391b9.png)
 
+```
+import seaborn as sns
+sns.boxplot(x="Gender", y="Age", data=mydata)
+```
+![download (2)](https://user-images.githubusercontent.com/84701809/181089427-aed6b4ae-5d25-420f-bdce-0c901740b570.png)
+
+```
+pd.crosstab(mydata['Product'],mydata['Gender'] )
+```
+```
+Gender	Female	Male
+Product		
+TM195	40	40
+TM498	29	31
+TM798	7	33
+```
+```
+pd.crosstab(mydata['Product'],mydata['MaritalStatus'] )
+```
+```
+MaritalStatus	Partnered	Single
+Product		
+TM195	48	32
+TM498	36	24
+TM798	23	17
+```
 ```markdown
 Syntax highlighted code block
 
